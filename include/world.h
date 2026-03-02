@@ -6,12 +6,6 @@
 #include "../lib/cdl/listInterface.h"
 
 typedef struct {
-  float x[PER_PAGE];
-  float y[PER_PAGE];
-  float z[PER_PAGE];
-} position_pg;
-
-typedef struct {
   double value[PER_PAGE];
 } health_pg;
 
