@@ -10,6 +10,8 @@ int main(int argv, char *args[]) {
 
   vec3_zero(&v1);
   vec3_print(v1);
+
+  vec3_set(NULL, 20, 20, 20);
   return 0;
 }
 
