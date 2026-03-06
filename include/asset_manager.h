@@ -1,0 +1,17 @@
+#ifndef UMAY_ENGINE_API_ASSET_MANAGER_H
+#define UMAY_ENGINE_API_ASSET_MANAGER_H
+
+#include <stdint.h>
+
+#define FOLDER_PATH "assets/"
+
+typedef struct asset_route {
+  uint32_t flag;
+  char *folder;
+} asset_route_t;
+
+void init_asset_manager(asset_route_t asset_routes[]);
+char *find_asset_folder_by_flag(uint32_t flag);
+
+#endif // UMAY_ENGINE_API_ASSET_MANAGER_H
+
