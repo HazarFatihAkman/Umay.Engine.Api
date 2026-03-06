@@ -12,7 +12,10 @@ static void _print_log_(
 ) {
   dprintf(STDOUT_FILENO, LOG_FORMAT, property_name, log);
   vdprintf(STDOUT_FILENO, format, args);
-  write(STDOUT_FILENO, "\n", 1);
+  ssize_t ret = write(STDOUT_FILENO, "\n", 1);
+  if (ret < 0) {
+    perror("write failed");
+  }
 }
 
 void print_info(const char *property_name, const char *format, ...) {
