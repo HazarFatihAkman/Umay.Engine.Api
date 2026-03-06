@@ -7,3 +7,6 @@ add_executable(v3_test main.c
   ../../src/vec3.c
   ../../src/print.c
 )
+
+add_test(NAME Vec3Test COMMAND v3_test)
+

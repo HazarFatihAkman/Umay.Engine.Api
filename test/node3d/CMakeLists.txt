@@ -8,3 +8,6 @@ add_executable(node3d_test main.c
   ../../src/print.c
   ../../src/node_3d.c
 )
+
+add_test(NAME Node3DTest COMMAND node3d_test)
+
