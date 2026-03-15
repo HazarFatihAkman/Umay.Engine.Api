@@ -4,10 +4,11 @@
 #include <stdint.h>
 
 #define FOLDER_PATH "assets/"
+#define PATH_LEN 128
 
 typedef struct asset_route {
   uint32_t flag;
-  char *folder;
+  char path[PATH_LEN];
 } asset_route_t;
 
 void init_asset_manager(asset_route_t asset_routes[]);
