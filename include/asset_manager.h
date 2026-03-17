@@ -11,7 +11,7 @@ typedef struct asset_route {
   char path[PATH_LEN];
 } asset_route_t;
 
-void init_asset_manager(asset_route_t asset_routes[]);
+void init_asset_manager(const asset_route_t asset_routes[]);
 char *find_asset_folder_by_flag(uint32_t flag, const char *ext);
 
 #endif // UMAY_ENGINE_API_ASSET_MANAGER_H

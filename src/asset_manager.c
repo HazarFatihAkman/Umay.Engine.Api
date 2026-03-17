@@ -1,20 +1,35 @@
 #include "../include/asset_manager.h"
+#include "../include/print.h"
 
 #include <stdint.h>
 #include <unistd.h>
+#include <stdio.h>
 
-static const asset_route_t *asset_route;
+static const asset_route_t *g_asset_routes = NULL;
 
-void init_asset_manager(asset_route_t asset_routes[]) {
-  asset_routes = asset_routes;
+void init_asset_manager(const asset_route_t asset_routes[]) {
+  g_asset_routes = asset_routes;
 }
 
-//TODO: find a algorithm for the finding asset_route by flag.
 char *find_asset_folder_by_flag(uint32_t flag, const char *ext) {
-  uint32_t prefix_idx = flag / 1000;
+  if (g_asset_routes == NULL) {
+    PRINT_NULL_ERR("asset_routes"); 
+    return NULL;
+  }
+
+  uint32_t index = flag / 1000;
   uint32_t asset_id = flag % 1000;
 
-  int path_len = snprintf(NULL, 0,FOLDER_PATH + "%s/%04u.%s");
-  return NULL;
+  static char final_path[PATH_LEN];
+  snprintf(final_path,
+    PATH_LEN,
+    "%s%s/%04u.%s",
+    FOLDER_PATH,
+    g_asset_routes[index].path,
+    asset_id,
+    ext
+  );
+
+  return final_path;
 }
 
